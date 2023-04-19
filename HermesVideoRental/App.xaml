@@ -6,6 +6,20 @@
     <Application.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Arial"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FFE0DD46"></Setter>
+            <Setter Property="MinHeight" Value="35"></Setter>
+        </Style>
+
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#FFFFF9F1"></Setter>
         </Style>
     </Application.Resources>
 </Application>

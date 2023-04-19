@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace HermesVideoRental.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для AuthorizationPage.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class AuthorizationPage : Page
     {
-        public MainPage()
+        public AuthorizationPage()
         {
             InitializeComponent();
-            MainPageFrame.Navigate(new AuthorizationPage());
         }
     }
 }

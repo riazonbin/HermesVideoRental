@@ -1,0 +1,41 @@
+﻿<Page x:Class="HermesVideoRental.Pages.AuthorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HermesVideoRental.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="900" Background="White"
+      Title="AuthorizationPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Text="Логин"></TextBlock>
+            <TextBox x:Name="tbLogin"></TextBox>
+            <TextBlock Text="Пароль" Margin="0 20 0 0"></TextBlock>
+            <TextBox x:Name="tbPassword"></TextBox>
+
+            <CheckBox x:Name="IsRemembering" Content="Запомнить меня?" Margin="0 10 0 0"></CheckBox>
+
+            <StackPanel HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Button x:Name="BtnAuthorized" Content="Авторизоваться"></Button>
+                <TextBlock Margin="0 10 0 0" HorizontalAlignment="Center">
+                    <Hyperlink NavigateUri="Pages/RegistrationPage.xaml">Зарегистрироваться?</Hyperlink>
+                </TextBlock>
+            </StackPanel>
+            
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HermesVideoRental.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="900"
       Title="MainPage" Background="White">
 
     <Grid>
@@ -20,12 +20,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3" Grid.Row="0"></Grid>
-        <Grid Grid.ColumnSpan="3" Grid.Row="2"></Grid>
+        <Grid Grid.ColumnSpan="3" Grid.Row="0" Background="#FFBACBD2"></Grid>
+        <Grid Grid.ColumnSpan="3" Grid.Row="2" Background="#FFBACBD2"></Grid>
 
-        <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Видеопрокат Hermes"></TextBlock>
-        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="/Images/VHS.png" Margin="0 0 15 0"></Image>
+            <TextBlock Text="Видеопрокат Hermes" VerticalAlignment="Center" FontSize="20"></TextBlock>
+        </StackPanel>
+
+        <Frame Grid.Row="1" Grid.Column="1" x:Name="MainPageFrame"></Frame>
 
     </Grid>
 </Page>
