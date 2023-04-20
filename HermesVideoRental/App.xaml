@@ -9,6 +9,12 @@
             <Setter Property="FontSize" Value="20"></Setter>
         </Style>
 
+        <Style TargetType="ListViewItem">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="Margin" Value="0 5 0 0"></Setter>
+        </Style>
+
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="20"></Setter>
         </Style>

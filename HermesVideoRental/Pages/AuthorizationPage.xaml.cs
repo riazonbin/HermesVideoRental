@@ -58,7 +58,7 @@ namespace HermesVideoRental.Pages
 
             if(user == null) 
             {
-                MessageBox.Show("Неверный логин или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(messageBoxText: "Неверный логин или пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 authorizationAttemptsCount++;
 
@@ -71,6 +71,11 @@ namespace HermesVideoRental.Pages
 
                 return;
             }
+
+            MessageBox.Show(messageBoxText: $"Добро пожаловать, {user.Login}!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            NavigationService.Navigate(new ClientsListPage());
+
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
