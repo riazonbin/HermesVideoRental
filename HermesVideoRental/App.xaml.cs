@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HermesVideoRental.Components;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace HermesVideoRental
     /// </summary>
     public partial class App : Application
     {
+        public static readonly HermesVideoRentalEntities Connection = new HermesVideoRentalEntities();
     }
 }

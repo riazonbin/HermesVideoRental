@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HermesVideoRental.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="900" Background="White"
-      Title="AuthorizationPage">
+      Title="AuthorizationPage" Loaded="PageLoaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,14 +24,14 @@
             <TextBlock Text="Логин"></TextBlock>
             <TextBox x:Name="tbLogin"></TextBox>
             <TextBlock Text="Пароль" Margin="0 20 0 0"></TextBlock>
-            <TextBox x:Name="tbPassword"></TextBox>
+            <PasswordBox x:Name="pbPassword"></PasswordBox>
 
             <CheckBox x:Name="IsRemembering" Content="Запомнить меня?" Margin="0 10 0 0"></CheckBox>
 
             <StackPanel HorizontalAlignment="Center" Margin="0 20 0 0">
-                <Button x:Name="BtnAuthorized" Content="Авторизоваться"></Button>
+                <Button x:Name="BtnAuthorize" Content="Авторизоваться" Click="BtnAuthorizeClick"></Button>
                 <TextBlock Margin="0 10 0 0" HorizontalAlignment="Center">
-                    <Hyperlink NavigateUri="Pages/RegistrationPage.xaml">Зарегистрироваться?</Hyperlink>
+                    <Hyperlink NavigateUri="RegistrationPage.xaml">Зарегистрироваться?</Hyperlink>
                 </TextBlock>
             </StackPanel>
             

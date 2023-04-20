@@ -28,7 +28,7 @@
             <TextBlock Text="Видеопрокат Hermes" VerticalAlignment="Center" FontSize="20"></TextBlock>
         </StackPanel>
 
-        <Frame Grid.Row="1" Grid.Column="1" x:Name="MainPageFrame"></Frame>
+        <Frame NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1" x:Name="MainPageFrame"></Frame>
 
     </Grid>
 </Page>

@@ -24,12 +24,12 @@
             <TextBlock Text="Логин"></TextBlock>
             <TextBox x:Name="tbLogin"></TextBox>
             <TextBlock Text="Пароль" Margin="0 20 0 0"></TextBlock>
-            <TextBox x:Name="tbPassword"></TextBox>
+            <PasswordBox x:Name="pbPassword"></PasswordBox>
 
             <StackPanel HorizontalAlignment="Center" Margin="0 20 0 0">
-                <Button x:Name="BtnAuthorized" Content="Зарегистрироваться"></Button>
+                <Button x:Name="BtnRegistrate" Content="Зарегистрироваться" Click="BtnRegistrateClick"></Button>
                 <TextBlock Margin="0 10 0 0" HorizontalAlignment="Center">
-                    <Hyperlink NavigateUri="Pages/AuthorizationPage.xaml">Авторизоваться?</Hyperlink>
+                    <Hyperlink NavigateUri="AuthorizationPage.xaml">Авторизоваться?</Hyperlink>
                 </TextBlock>
             </StackPanel>
 
