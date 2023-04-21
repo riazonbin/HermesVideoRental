@@ -11,12 +11,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="12*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -25,7 +25,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="/Images/VHS.png" Margin="0 0 15 0"></Image>
-            <TextBlock Text="Видеопрокат Hermes" VerticalAlignment="Center" FontSize="20"></TextBlock>
+            <TextBlock Text="Видеопрокат Hermes" VerticalAlignment="Center" FontSize="24"></TextBlock>
         </StackPanel>
 
         <Frame NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1" x:Name="MainPageFrame"></Frame>

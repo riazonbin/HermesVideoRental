@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HermesVideoRental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="900" MinHeight="650" MinWidth="800">
+        Title="MainWindow" MinHeight="950" MinWidth="1000" WindowState="Maximized">
     <Grid>
         <Frame NavigationUIVisibility="Hidden" x:Name="MainWindowFrame"></Frame>
     </Grid>

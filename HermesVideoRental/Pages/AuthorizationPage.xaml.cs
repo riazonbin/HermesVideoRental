@@ -72,6 +72,17 @@ namespace HermesVideoRental.Pages
                 return;
             }
 
+            if(IsRemembering.IsChecked == true)
+            {
+                Properties.Settings.Default.Login = tbLogin.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Login = "";
+                Properties.Settings.Default.Save();
+            }
+
             MessageBox.Show(messageBoxText: $"Добро пожаловать, {user.Login}!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
 
             NavigationService.Navigate(new ClientsListPage());
@@ -80,7 +91,7 @@ namespace HermesVideoRental.Pages
 
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
-
+            tbLogin.Text = Properties.Settings.Default.Login;
         }
     }
 }

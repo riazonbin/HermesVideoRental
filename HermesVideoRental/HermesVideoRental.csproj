@@ -97,6 +97,8 @@
     <Compile Include="Components\ClientTag.cs">
       <DependentUpon>HermesVideoRentalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Components\ExtensionClasses\Client.cs" />
+    <Compile Include="Components\ExtensionClasses\Tag.cs" />
     <Compile Include="Components\Gender.cs">
       <DependentUpon>HermesVideoRentalModel.tt</DependentUpon>
     </Compile>
