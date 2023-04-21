@@ -61,7 +61,7 @@ namespace HermesVideoRental.Pages
 
         private void EditDataCount()
         {
-            tbRecordsCount.Text = $"{ClientsList.Count} из {App.Connection.Client.Count()}";
+            tbRecordsCount.Text = $"{ClientsList.Count} из {App.Connection.Client.Where(x => x.IsMarkedForDeletion != true).Count()}";
         }
 
         private void GetClientsByPages()
@@ -233,6 +233,20 @@ namespace HermesVideoRental.Pages
             var client = App.Connection.Client.FirstOrDefault(x => x.Id == clientId);
 
             NavigationService.Navigate(new ClientPage(client));
+        }
+
+        private void BtnAddClientClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientPage(null));
+        }
+
+        private void BtnCheckVisitsClick(object sender, RoutedEventArgs e)
+        {
+            var clientId = (int)((Button)sender).Tag;
+
+            var client = App.Connection.Client.FirstOrDefault(x => x.Id == clientId);
+
+            NavigationService.Navigate(new ClientVisitsPage(client));
         }
     }
 }

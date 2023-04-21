@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ClientVisitsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +107,7 @@
     </Compile>
     <Compile Include="Components\ExtensionClasses\Client.cs" />
     <Compile Include="Components\ExtensionClasses\Tag.cs" />
+    <Compile Include="Components\ExtensionClasses\Visit.cs" />
     <Compile Include="Components\Gender.cs">
       <DependentUpon>HermesVideoRentalModel.tt</DependentUpon>
     </Compile>
@@ -141,6 +146,9 @@
     </Compile>
     <Compile Include="Pages\ClientsListPage.xaml.cs">
       <DependentUpon>ClientsListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientVisitsPage.xaml.cs">
+      <DependentUpon>ClientVisitsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

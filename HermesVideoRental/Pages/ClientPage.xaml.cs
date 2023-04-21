@@ -1,8 +1,10 @@
 ﻿using HermesVideoRental.Components;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -141,6 +143,12 @@ namespace HermesVideoRental.Pages
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+
+                if(!isEdit)
+                {
+                    _client.AddedDate= DateTime.Now;
+                }
+
                 App.Connection.Client.AddOrUpdate(_client);
                 App.Connection.SaveChanges();
 
@@ -192,6 +200,23 @@ namespace HermesVideoRental.Pages
             }
 
             return false;
+        }
+
+        private void BtnAddPhotoClick(object sender, RoutedEventArgs e)
+        {
+            var window = new OpenFileDialog();
+            window.Filter = "Image files (*.png;*.jpg)|*.png;*.jpg";
+
+            if (window.ShowDialog() != true)
+            {
+                MessageBox.Show("Изображение не выбрано");
+                return;
+            }
+
+            var byteArray = File.ReadAllBytes(window.FileName);
+            _client.Photo = byteArray;
+
+            BindingOperations.GetBindingExpressionBase(imageClient, Image.SourceProperty).UpdateTarget();
         }
     }
 }

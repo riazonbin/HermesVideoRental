@@ -1,0 +1,63 @@
+﻿<Page x:Class="HermesVideoRental.Pages.ClientVisitsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HermesVideoRental.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="950" d:DesignWidth="1400"
+      Title="ClientVisitsPage">
+
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="MinHeight" Value="50"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="Margin" Value="15"></Setter>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="MinHeight" Value="40"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="День недели:"></TextBlock>
+            <ComboBox x:Name="CbDayOfWeeks" Width="200" SelectionChanged="CbDayOfWeeksSelectionChanged">
+                <ComboBoxItem Content="Понедельник"></ComboBoxItem>
+                <ComboBoxItem Content="Вторник"></ComboBoxItem>
+                <ComboBoxItem Content="Среда"></ComboBoxItem>
+                <ComboBoxItem Content="Четверг"></ComboBoxItem>
+                <ComboBoxItem Content="Пятница"></ComboBoxItem>
+                <ComboBoxItem Content="Суббота"></ComboBoxItem>
+                <ComboBoxItem Content="Воскресенье"></ComboBoxItem>
+                <ComboBoxItem Content="Любой"></ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        
+        <ListView x:Name="lvVisits" Grid.Row="1" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding StringFormat=Дата посещения: {0:dd.MM.yyyy}, Path=Date}"></TextBlock>
+                        <TextBlock Text="{Binding StringFormat=День недели: {0}, Path=DayOfWeekOfVisit}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

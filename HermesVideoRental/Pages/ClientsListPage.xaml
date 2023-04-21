@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HermesVideoRental.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="900"
+      d:DesignHeight="800" d:DesignWidth="1400"
       Title="ClientsListPage" Loaded="PageLoaded">
 
     <Grid>
@@ -74,7 +74,8 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
                             <TextBlock Text="{Binding StringFormat=Дата добавления: {0:dd.MM.yyyy}, Path=AddedDate}"></TextBlock>
-                            <TextBlock Text="{Binding StringFormat=Последнее посещение: {0:dd.MM.yyyy}, Path=LastVisitDate}" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock Text="{Binding StringFormat=Последнее посещение: {0:dd.MM.yyyy}, Path=LastVisitDate}" Visibility="{Binding HasVisits}" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock Text=" Последнее посещение: посещений нет" Visibility="{Binding ZeroVisitsMessageVisibility}"></TextBlock>
                         </StackPanel>
                         <TextBlock Text="{Binding StringFormat=Количество посещений: {0}, Path=CountOfVisits}" Margin="0 5 0 0"></TextBlock>
                         <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
@@ -95,6 +96,7 @@
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 10">
                             <Button x:Name="BtnDeleteClient" Tag="{Binding Id}" Content="Удалить клиента" Click="BtnDeleteClientClick"></Button>
                             <Button x:Name="BtnEditClient" Tag="{Binding Id}" Content="Изменить клиента" Margin="10 0 0 0" Click="BtnEditClientClick"></Button>
+                            <Button x:Name="BtnCheckVisits" Tag="{Binding Id}" Content="Посмотреть посещения" Margin="10 0 0 0" Click="BtnCheckVisitsClick"></Button>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
@@ -110,6 +112,7 @@
             </ComboBox>
             <Button x:Name="BtnPreviousPage" Content="Предыдущая страница" Margin="10 0 0 0" Click="BtnPreviousPageClick"></Button>
             <Button x:Name="BtnNextPage" Content="Следущая страница" Margin="10 0 0 0" Click="BtnNextPageClick"></Button>
+            <Button x:Name="BtnAddClient" Content="Добавить клиента" Margin="10 0 0 0" Click="BtnAddClientClick"></Button>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">

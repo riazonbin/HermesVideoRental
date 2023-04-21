@@ -71,11 +71,11 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button x:Name="BtnAddPhoto" Content="Выбрать фото" MinHeight="40" Margin="5"></Button>
+                <Button x:Name="BtnAddPhoto" Content="Выбрать фото" MinHeight="40" Margin="5" Click="BtnAddPhotoClick"></Button>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="1">
-                <Image Source="{Binding Photo}" Width="250" Height="200"></Image>
+                <Image x:Name="imageClient" Source="{Binding Photo}" Width="250" Height="200"></Image>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Grid.Column="0">
