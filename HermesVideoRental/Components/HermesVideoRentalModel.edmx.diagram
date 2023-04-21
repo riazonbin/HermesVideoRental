@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d72ac2cb9d3f42c09d9eb1c755989385" Name="Diagram1">
-        <EntityTypeShape EntityType="HermesVideoRentalModel.Client" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.ClientTag" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.Gender" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.Tag" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.User" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HermesVideoRentalModel.Visit" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <AssociationConnector Association="HermesVideoRentalModel.FK_Client_Gender" ManuallyRouted="false" />
-        <AssociationConnector Association="HermesVideoRentalModel.FK_ClientTag_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="HermesVideoRentalModel.FK_Visit_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="HermesVideoRentalModel.FK_ClientTag_Tag" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.Client" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.ClientTag" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.Gender" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.Tag" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.User" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HermesVideoRentalModel.Visit" Width="1.5" PointX="5.25" PointY="5.125" />
+        <AssociationConnector Association="HermesVideoRentalModel.FK_Client_Gender" />
+        <AssociationConnector Association="HermesVideoRentalModel.FK_ClientTag_Client" />
+        <AssociationConnector Association="HermesVideoRentalModel.FK_Visit_Client" />
+        <AssociationConnector Association="HermesVideoRentalModel.FK_ClientTag_Tag" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

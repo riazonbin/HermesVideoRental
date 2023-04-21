@@ -1,6 +1,7 @@
 ﻿using HermesVideoRental.Components;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace HermesVideoRental.Pages
         private void UpdateClients()
         {
             ClientsList = App.Connection.Client.ToList()
-                .Where(x => _genderFilter(x) && _birthDateFilter(x))
+                .Where(x => _genderFilter(x) && _birthDateFilter(x) && x.IsMarkedForDeletion != true) 
                 .OrderBy(x => _sortingQuery(x))
                 .ToList();
 
@@ -53,12 +54,19 @@ namespace HermesVideoRental.Pages
                 x.Patronymic, x.Email, x.PhoneNumber)
                 .ToLower()
                 .Contains(tbSearch.Text));
+
             GetClientsByPages();
+            EditDataCount();
+        }
+
+        private void EditDataCount()
+        {
+            tbRecordsCount.Text = $"{ClientsList.Count} из {App.Connection.Client.Count()}";
         }
 
         private void GetClientsByPages()
         {
-            ClientsList = ClientsList.Skip(_pageNumber * _recordsCountShown).Take(_pageNumber* _recordsCountShown).ToList();
+            ClientsList = ClientsList.Skip(_pageNumber * _recordsCountShown).Take(_recordsCountShown).ToList();
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
@@ -66,6 +74,9 @@ namespace HermesVideoRental.Pages
             CbGender.SelectedIndex = 2;
             CbSort.SelectedIndex = 3;
             CbGender.SelectedIndex = 3;
+            CbNumberOfRecords.SelectedIndex = 3;
+
+            ChangePage(0);
 
             UpdateClients();
         }
@@ -188,6 +199,40 @@ namespace HermesVideoRental.Pages
             {
                 BtnNextPage.IsEnabled = true;
             }
+        }
+
+        private void BtnDeleteClientClick(object sender, RoutedEventArgs e)
+        {
+            var clientId = (int)((Button)sender).Tag;
+
+            var client = App.Connection.Client.FirstOrDefault(x => x.Id == clientId);
+            var clientVisits = App.Connection.Visit.Where(x => x.ClientId == clientId).ToList();
+
+            if(clientVisits.Any())
+            {
+                MessageBox.Show("Удаление клиента невозможно.\nВ системе все еще хранится информация о его посещениях.",
+                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            client.IsMarkedForDeletion = true;
+            App.Connection.Client.AddOrUpdate(client);
+            App.Connection.SaveChanges();
+
+            UpdateClients();
+
+            MessageBox.Show($"Клиент {client.Firstname} {client.Lastname} {client.Patronymic} успешно удален из системы!",
+                    "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
+        private void BtnEditClientClick(object sender, RoutedEventArgs e)
+        {
+            var clientId = (int)((Button)sender).Tag;
+
+            var client = App.Connection.Client.FirstOrDefault(x => x.Id == clientId);
+
+            NavigationService.Navigate(new ClientPage(client));
         }
     }
 }

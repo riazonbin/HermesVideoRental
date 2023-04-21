@@ -31,6 +31,7 @@ namespace HermesVideoRental.Components
         public string Email { get; set; }
         public Nullable<System.DateTime> AddedDate { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<bool> IsMarkedForDeletion { get; set; }
     
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

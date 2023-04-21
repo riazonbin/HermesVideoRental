@@ -1,0 +1,87 @@
+﻿<Page x:Class="HermesVideoRental.Pages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HermesVideoRental.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="950"
+      Title="ClientPage" Loaded="PageLoaded">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="MinHeight" Value="40"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="MinHeight" Value="40"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <TextBlock x:Name="tblId" Text="ID"></TextBlock>
+                <TextBlock Text="Фамилия"></TextBlock>
+                <TextBlock Text="Имя"></TextBlock>
+                <TextBlock Text="Отчество"></TextBlock>
+                <TextBlock Text="Email"></TextBlock>
+                <TextBlock Text="Телефон"></TextBlock>
+                <TextBlock Text="Дата рождения"></TextBlock>
+                <TextBlock Text="Пол"></TextBlock>
+                <TextBlock Text="Фото"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <TextBox x:Name="tbId" Text="{Binding Id}" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="tbFirstname" Text="{Binding Firstname}"></TextBox>
+                <TextBox x:Name="tbLastname" Text="{Binding Lastname}"></TextBox>
+                <TextBox x:Name="tbPatronymic" Text="{Binding Patronymic}"></TextBox>
+                <TextBox x:Name="tbEmail" Text="{Binding Email}"></TextBox>
+                <TextBox x:Name="tbTelephone" Text="{Binding PhoneNumber}"></TextBox>
+                <DatePicker MinHeight="40" FontSize="24" Margin="5" x:Name="dpDateOfBirth" SelectedDate="{Binding BirthDate}"></DatePicker>
+                <ComboBox x:Name="CbGender" FontSize="24" MinHeight="40" Margin="5" SelectedValue="{Binding Gender}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button x:Name="BtnAddPhoto" Content="Выбрать фото" MinHeight="40" Margin="5"></Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <Image Source="{Binding Photo}" Width="250" Height="200"></Image>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <Button x:Name="BtnSaveChanges" Content="Сохранить"></Button>
+        </StackPanel>
+        
+    </Grid>
+</Page>
