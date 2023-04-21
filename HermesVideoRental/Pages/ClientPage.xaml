@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HermesVideoRental.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="900" d:DesignWidth="950"
-      Title="ClientPage" Loaded="PageLoaded">
+      Title="ClientPage" Loaded="PageLoaded" Unloaded="PageUnloaded">
     <Page.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="24"></Setter>
@@ -58,9 +58,9 @@
 
             <StackPanel Grid.Column="1" Grid.Row="0">
                 <TextBox x:Name="tbId" Text="{Binding Id}" IsReadOnly="True"></TextBox>
-                <TextBox x:Name="tbFirstname" Text="{Binding Firstname}"></TextBox>
-                <TextBox x:Name="tbLastname" Text="{Binding Lastname}"></TextBox>
-                <TextBox x:Name="tbPatronymic" Text="{Binding Patronymic}"></TextBox>
+                <TextBox x:Name="tbFirstname" Text="{Binding Firstname}" MaxLength="50"></TextBox>
+                <TextBox x:Name="tbLastname" Text="{Binding Lastname}" MaxLength="50"></TextBox>
+                <TextBox x:Name="tbPatronymic" Text="{Binding Patronymic}" MaxLength="50"></TextBox>
                 <TextBox x:Name="tbEmail" Text="{Binding Email}"></TextBox>
                 <TextBox x:Name="tbTelephone" Text="{Binding PhoneNumber}"></TextBox>
                 <DatePicker MinHeight="40" FontSize="24" Margin="5" x:Name="dpDateOfBirth" SelectedDate="{Binding BirthDate}"></DatePicker>
@@ -77,10 +77,45 @@
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <Image Source="{Binding Photo}" Width="250" Height="200"></Image>
             </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Теги:"></TextBlock>
+                    <ListView x:Name="lvClientTags" ItemsSource="{Binding ClientTag}" d:ItemsSource="{d:SampleData ItemCount=5}" MouseDoubleClick="lvClientTagsMouseDoubleClick">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Tag.Name}" Background="{Binding Tag.HexColor}"></TextBlock>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Добавить теги:"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <ListView x:Name="lvFreeTags" d:ItemsSource="{d:SampleData ItemCount=5}" MouseDoubleClick="LvFreeTagsMouseDoubleClick">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" Background="{Binding HexColor}"></TextBlock>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         </Grid>
 
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <Button x:Name="BtnSaveChanges" Content="Сохранить"></Button>
+            <Button x:Name="BtnSaveChanges" Content="Сохранить" Click="BtnSaveChanges_Click"></Button>
         </StackPanel>
         
     </Grid>

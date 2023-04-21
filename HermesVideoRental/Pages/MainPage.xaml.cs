@@ -25,5 +25,10 @@ namespace HermesVideoRental.Pages
             InitializeComponent();
             MainPageFrame.Navigate(new AuthorizationPage());
         }
+
+        private void BtnGoBackClick(object sender, RoutedEventArgs e)
+        {
+            if(NavigationService.CanGoBack) NavigationService.GoBack();
+        }
     }
 }

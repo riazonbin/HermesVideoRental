@@ -28,6 +28,12 @@
             <TextBlock Text="Видеопрокат Hermes" VerticalAlignment="Center" FontSize="24"></TextBlock>
         </StackPanel>
 
+        <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button x:Name="BtnGoBack" Click="BtnGoBackClick">
+                <TextBlock Text="Назад" FontSize="24" Margin="5"></TextBlock>
+            </Button>
+        </StackPanel>
+
         <Frame NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1" x:Name="MainPageFrame"></Frame>
 
     </Grid>
